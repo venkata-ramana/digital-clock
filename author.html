@@ -1,0 +1,174 @@
+<html>
+<head>
+<link rel="stylesheet" href="generic-aut.css"> 
+<script src="jquery.min.js"></script>
+</script>
+</head>
+<body bgcolor="grey">
+<section class="clock">
+<div id="digit-0" class="digit1">
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>
+<div id="digit-1" class="digit1">
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>	
+
+<div id="digit-2" class="digit1">
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>	
+	
+<div id="digit-3" class="digit1">
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>	
+<div id="digit-4" class="digit1">
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>	
+	
+<div id="digit-5" class="digit1">
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>	
+
+	</section>
+<script>
+var s,m,h,t="A";
+digit0=$('#digit-0');
+digit1=$('#digit-1');
+
+digit2=$('#digit-2');
+digit3=$('#digit-3');
+
+digit4=$('#digit-4');
+digit5=$('#digit-5');
+
+function renderDigit(container,number)
+{
+var matrix;
+switch(number)
+{
+		case 'V':
+      matrix = [
+        true, false, false, false,true,
+        true, false, false, false,true,
+        true, false, false, false,true,
+        true, false, false, false,true,
+        true, false, false, false,true,
+        false, true, false, true,false,
+        false, false, true, false,false
+      ];
+      break;
+	  case 'A':
+      matrix = [
+        true, true, true, true,true,
+        true, false, false, false,true,
+        true, false, false, false,true,
+        true, true, true, true,true,
+        true, false, false, false,true,
+        true, false, false, false,true,
+        true, false, false, false,true
+      ];
+      break;
+	  
+	  
+	  case 'N':
+      matrix = [
+        true, true, false, false, true,
+        true, true, false, false, true,
+        true, true, false, false, true,
+        true, false, true, false, true,
+        true, false, false, true, true,
+        true, false, false, true, true,
+        true, false, false, true, true
+      ];
+      break;
+
+	  case 'E':
+      matrix = [
+        true, true, true, true,true,
+        true, false, false, false,false,
+        true, false, false, false,false,
+        true, true, true, true,false,
+        true, false, false, false,false,
+        true, false, false, false,false,
+        true, true, true, true,true
+      ];
+      break;
+	  case 'T':
+      matrix = [
+        true, true, true, true,true,
+        true, false, true, false,true,
+        false, false, true, false,false,
+        false, false, true, false,false,
+        false, false, true, false,false,
+        false, false, true, false,false,
+        false, false, true, false,false
+      ];
+	  break;
+	   case 'K':
+      matrix = [
+        true, false, false, false,true,
+        true, false, false, true,false,
+        true, false, true, false,false,
+        true, true, false, false,false,
+        true, false, true, false,false,
+        true, false, false, true,false,
+        true, false, false, false,true
+      ];
+	  break;
+	  }
+var children = container.children();
+  var len = matrix.length;
+  for (var i = 0; i < len; i++) {
+    children.eq(i).toggleClass('on', matrix[i]);
+  }
+}
+function render() {
+   renderDigit(digit5,'T');
+  renderDigit(digit4,'A');
+   renderDigit(digit3,'K');
+  renderDigit(digit2,'N');
+  renderDigit(digit1,'E');
+  renderDigit(digit0,'V');
+ 
+  requestAnimationFrame(render);
+}
+render();
+
+</script>
+</body>
+</html>

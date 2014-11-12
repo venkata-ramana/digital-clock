@@ -1,0 +1,47 @@
+html,
+body { background-color: gray; }
+
+.clock {
+  font-size: 0;
+  text-align: center;
+}
+
+.clock .digit1 {
+  display: inline-block;
+  width: 70;
+  margin: 10px;
+  -webkit-transform: skewX(-2deg);
+  transform: skewX(-2deg);
+}
+
+.clock .digit1#digit-2 .cell {
+  -webkit-transition: opacity 50ms ease;
+  transition: opacity 50ms ease;
+}
+
+.clock .digit1#digit-3 .cell,
+.clock .digit1#digit-4 .cell,
+.clock .digit1#digit-5 .cell,
+.clock .digit1#digit-6 .cell,
+.clock .digit1#digit-7 .cell,
+.clock .digit1#digit-8 .cell,
+.clock .digit1#digit-9 .cell,
+.clock .digit1#digit-10 .cell,
+.clock .digit1#digit-11 .cell {
+  -webkit-transition: opacity 100ms ease;
+  transition: opacity 100ms ease;
+}
+
+.clock .digit1 .cell {
+  width: 10px;
+  height: 10px;
+  margin: 2px;
+  background-color: white;
+  border-radius: 2px;
+  display: inline-block;
+  opacity: 0;
+}
+
+.clock .digit1 .cell.on { opacity: 1;
+box-shadow:0 0 20px 1px magenta;
+ }

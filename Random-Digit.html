@@ -1,0 +1,188 @@
+<html>
+<head><script src="jquery.min.js"></script>
+<style>
+html,body
+{
+background-color:gray;
+}
+.clock
+{
+font-size:0;
+text-align:center;
+}
+.clock .digit
+{
+width:88px;
+margin:10px;
+display:inline-block;
+-webkit-transform:skewX(-2deg);
+transform:skewX(-2deg);
+}
+.clock .digit .cell {
+width:18px;
+height:18px;
+margin:2px;
+background-color:white;
+border-radius:2px;
+display:inline-block;
+opacity:0.1;
+}
+.clock .digit#digit-0 .cell
+{
+-webkit-transition:opacity 100ms ease;
+transition:opacity 100ms ease;
+}
+
+.clock .digit .cell.on { opacity: 1; }
+</style>
+</head><body>
+<section class="clock">
+<div id="digit-0" class="digit">
+<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+</div></section>
+<script>
+var a;
+digit0=$('#digit-0');
+function randomNumber(min, max)
+{
+        return Math.floor(Math.random() * (max - min + 1) + min);
+}
+function renderDigit(container,number)
+{
+var matrix;
+switch(number)
+{
+case 0:
+      matrix = [
+        true, true, true, true,
+        true, false, false, true,
+        true, false, false, true,
+        true, false, false, true,
+        true, false, false, true,
+        true, false, false, true,
+        true, true, true, true
+      ];
+      break;
+    case 1:
+      matrix = [
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true
+      ];
+      break;
+    case 2:
+      matrix = [
+        true, true, true, true,
+        false, false, false, true,
+        false, false, false, true,
+        true, true, true, true,
+        true, false, false, false,
+        true, false, false, false,
+        true, true, true, true
+      ];
+      break;
+    case 3:
+      matrix = [
+        true, true, true, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, true, true, true,
+        false, false, false, true,
+        false, false, false, true,
+        true, true, true, true
+      ];
+      break;
+    case 4:
+      matrix = [
+        true, false, false, false,
+        true, false, false, true,
+        true, false, false, true,
+        true, true, true, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true
+      ];
+      break;
+    case 5:
+      matrix = [
+        true, true, true, true,
+        true, false, false, false,
+        true, false, false, false,
+        true, true, true, true,
+        false, false, false, true,
+        false, false, false, true,
+        true, true, true, true
+      ];
+      break;
+    case 6:
+      matrix = [
+        true, true, true, true,
+        true, false, false, false,
+        true, false, false, false,
+        true, true, true, true,
+        true, false, false, true,
+        true, false, false, true,
+        true, true, true, true
+      ];
+      break;
+    case 7:
+      matrix = [
+        true, true, true, true,
+        true, false, false, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true
+      ];
+      break;
+    case 8:
+      matrix = [
+        true, true, true, true,
+        true, false, false, true,
+        true, false, false, true,
+        true, true, true, true,
+        true, false, false, true,
+        true, false, false, true,
+        true, true, true, true
+      ];
+      break;
+    case 9:
+      matrix = [
+        true, true, true, true,
+        true, false, false, true,
+        true, false, false, true,
+        true, true, true, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true
+      ];
+      break;
+}
+var children=container.children();
+var len=matrix.length;
+for(var i=0;i<len;i++)
+{
+children.eq(i).toggleClass('on',matrix[i]);
+}
+}
+function render()
+{
+renderDigit(digit0,a);
+requestAnimationFrame(render);
+}
+a=randomNumber(0, 9);
+render();
+</script>
+</body>
+</html>

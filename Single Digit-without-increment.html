@@ -1,0 +1,151 @@
+<html>
+<head>
+<link rel="stylesheet" href="generic.css"> 
+<script src="jquery.min.js"></script>
+</script>
+</head>
+<body bgcolor="grey">
+<section class="clock">
+<div id="digit-0" class="digit">
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+	<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div></section>
+<script>
+var i=0;
+digit0=$('#digit-0');
+function renderDigit(container,number)
+{
+var matrix;
+switch(number)
+{
+case 0:
+      matrix = [
+        true, true, true, true,
+        true, false, false, true,
+        true, false, false, true,
+        true, false, false, true,
+        true, false, false, true,
+        true, false, false, true,
+        true, true, true, true
+      ];
+      break;
+    case 1:
+      matrix = [
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true
+      ];
+      break;
+    case 2:
+      matrix = [
+        true, true, true, true,
+        false, false, false, true,
+        false, false, false, true,
+        true, true, true, true,
+        true, false, false, false,
+        true, false, false, false,
+        true, true, true, true
+      ];
+      break;
+    case 3:
+      matrix = [
+        true, true, true, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, true, true, true,
+        false, false, false, true,
+        false, false, false, true,
+        true, true, true, true
+      ];
+      break;
+    case 4:
+      matrix = [
+        true, false, false, false,
+        true, false, false, true,
+        true, false, false, true,
+        true, true, true, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true
+      ];
+      break;
+    case 5:
+      matrix = [
+        true, true, true, true,
+        true, false, false, false,
+        true, false, false, false,
+        true, true, true, true,
+        false, false, false, true,
+        false, false, false, true,
+        true, true, true, true
+      ];
+      break;
+    case 6:
+      matrix = [
+        true, true, true, true,
+        true, false, false, false,
+        true, false, false, false,
+        true, true, true, true,
+        true, false, false, true,
+        true, false, false, true,
+        true, true, true, true
+      ];
+      break;
+    case 7:
+      matrix = [
+        true, true, true, true,
+        true, false, false, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true
+      ];
+      break;
+    case 8:
+      matrix = [
+        true, true, true, true,
+        true, false, false, true,
+        true, false, false, true,
+        true, true, true, true,
+        true, false, false, true,
+        true, false, false, true,
+        true, true, true, true
+      ];
+      break;
+    case 9:
+      matrix = [
+        true, true, true, true,
+        true, false, false, true,
+        true, false, false, true,
+        true, true, true, true,
+        false, false, false, true,
+        false, false, false, true,
+        false, false, false, true
+      ];
+      break;
+	  }
+var children = container.children();
+  var len = matrix.length;
+  for (var i = 0; i < len; i++) {
+    children.eq(i).toggleClass('on', matrix[i]);
+  }
+}
+function render() {
+         renderDigit(digit0,1);
+  requestAnimationFrame(render);
+}
+render();
+
+</script>
+</body>
+</html>
